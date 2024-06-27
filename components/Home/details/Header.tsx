@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { GiShoppingCart } from "react-icons/gi";
@@ -31,10 +32,10 @@ function Header() {
           armrests. Elegant with its black and red color and bucket design, it
           offers an ideal position for long gaming sessions.
         </p>
-        <button className="flex flex-row h-10 items-center justify-center gap-6 bg-red-600 w-[90vw] lg:w-full  text-xl rounded-lg">
+        <Link href='/auth' className="flex flex-row h-10 items-center justify-center gap-6 bg-red-600 w-[90vw] lg:w-full  text-xl rounded-lg">
           <p>Buy Now</p>
           <GiShoppingCart className="text-3xl" />
-        </button>
+        </Link>
         <button
           onClick={() => setClickd(isClicked ? false : true)}
           className={`flex mt-4 flex-row h-10 items-center justify-center gap-6 w-[90vw] lg:w-full  bg-emerald-500  border-1 border-slate-600 text-xl rounded-lg ${

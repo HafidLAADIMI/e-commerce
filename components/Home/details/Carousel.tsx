@@ -98,7 +98,7 @@ function Carousel() {
           <Card key={i} item={item} /> 
         ))}
       </div>
-      <div>
+      <div className="gap-4">
         <button
           onClick={previous}
           className=" bg-gray-800 p-2 rounded-full text-white hover:bg-gray-700 transition"

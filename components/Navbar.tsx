@@ -26,7 +26,7 @@ function Navbar() {
             <Link onClick={()=>{clicked?setClicked(false):setClicked(true)}} href="#" className="text-3xl xl:hidden">
               <VscListSelection />
             </Link>
-            <Link href="#" className="text-3xl">
+            <Link href="/" className="text-3xl">
               <IoLogoReact />
             </Link>
             <Link
@@ -63,7 +63,7 @@ function Navbar() {
             <Link href="#" className="text-2xl">
               <MdLightMode />
             </Link>
-            <Link href="#" className="text-2xl">
+            <Link href="/admin" className="text-2xl">
               <FaUser />
             </Link>
             <Link href="#" className="text-2xl">
@@ -80,7 +80,7 @@ function Navbar() {
             <Link onClick={()=>{clicked?setClicked(false):setClicked(true)}} href="#" className="text-3xl">
               <VscListSelection />
             </Link>
-            <Link href="#" className="text-3xl">
+            <Link href="/" className="text-3xl">
               <IoLogoReact />
             </Link>
           </div>
@@ -88,7 +88,7 @@ function Navbar() {
             <Link href="#" className="text-3xl">
               <MdLightMode />
             </Link>
-            <Link href="#" className="text-3xl">
+            <Link href="/admin" className="text-3xl">
               <FaUser />
             </Link>
             <Link href="#" className="text-3xl">
