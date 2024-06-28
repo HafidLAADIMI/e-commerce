@@ -66,7 +66,7 @@ function SideMobile({ clicked }: Props) {
       style={{
         transform: clicked ? "translateX(0)" : "translateX(-100%)",
       }}
-      className=" text-slate-300 bg-black border border-slate-700 border-solid  absolute flex xl:hidden font-mono flex-col gap-2 transition ease-out duration-300 px-1 py-1 mr-2 items-start z-50 overflow-hidden"
+      className=" text-slate-300 bg-black border border-slate-700 border-solid  absolute flex xl:hidden font-mono flex-col gap-2 transition ease-out duration-300 px-2 py-1 mr-2 items-start z-50 overflow-hidden"
     >
       <div className="flex flex-col gap-5 justify-center items-start">
         <div className="h-8 w-[90vw] pt-1  text-red-600 bg-red-200">Find</div>

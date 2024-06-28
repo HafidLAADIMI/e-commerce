@@ -13,7 +13,6 @@ interface User {
 
 function Page() {
    const {data:session}=useSession();
-   console.log(session);
   const [search, setSearch] = useState<string>("");
   const [users, setUsers] = useState<User[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
@@ -41,7 +40,7 @@ function Page() {
 
     setFilteredUsers(filterUsers);
   }, [search, users]);
-
+  console.log(filteredUsers)
 
  if(session?.user?.email==="viralwave2003@gmail.com")
   return (
@@ -77,7 +76,7 @@ function Page() {
               >
                 <td className="px-4 py-2">{user.email}</td>
                 <td className="px-4 py-2">{user.password}</td>
-                <td className="px-4 py-2">{user.createdAt}</td>             
+                 <td className="px-4 py-2">{new Date(user.createdAt).toLocaleDateString()}</td>            
               </tr>
             ))}
           </tbody>
@@ -86,7 +85,7 @@ function Page() {
     </div>
   );
   else return(
-    <div className="flex w-screen h-screen pt-7 justify-center">
+    <div className="flex w-screen h-screen pt-7 px-4 justify-center">
       <h1 className="text-4xl text-red-600 font-bold "> 😅SORRY BUT YOU ARE NOT AN ADMIN</h1>
     </div>
   )

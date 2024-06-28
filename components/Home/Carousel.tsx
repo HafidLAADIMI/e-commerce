@@ -32,20 +32,21 @@ function Carousel({ magazins }: ItemProps) {
   }, [next]);
 
   return (
-    <div className="relative sm:w-[500px]   my-2 overflow-hidden">
+    <div className="relative w-full max-w-lg mx-auto overflow-hidden">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {magazins.map((item, i) => (
-          <Image
-            key={i}
-            src={item}
-            height={500}
-            width={500}
-            alt={`image-${i}`}
-            className="h-full w-full "
-          />
+          <div key={i} className="flex-shrink-0 w-full">
+            <Image
+              src={item}
+              height={500}
+              width={500}
+              alt={`image-${i}`}
+              className="w-full h-auto object-cover"
+            />
+          </div>
         ))}
       </div>
 

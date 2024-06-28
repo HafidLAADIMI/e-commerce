@@ -51,7 +51,7 @@ function Head() {
           <p>Mars Gaming</p>
         </div>
       </div>
-      <div className="flex flex-row items-center gap-16">
+      <div className="flex flex-row items-center gap-6 px-4">
         <div className="flex flex-row items-center gap-5 backdrop-blur-sm box-border  bg-slate-800/70 border border-slate-700 border-solid text-slate-300  hover:bg-slate-700/70 cursor-pointer rounded-sm px-4 py-2">
           <IoFilterOutline />
           <p>Filters</p>
