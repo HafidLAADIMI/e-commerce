@@ -67,7 +67,7 @@ function Auth({ session }: any) {
   };
   if (!session)
     return (
-      <div className="flex h-screen flex-row w-screen justify-center items-center">
+      <div className="flex h-screen flex-col  gap-2 w-screen justify-center items-center">
         <form
           onSubmit={Login}
           className="flex flex-col backdrop-blur-sm box-border p-5 bg-slate-800/70 border border-slate-700 border-solid gap-12 items-center shadow-sm rounded-lg"
@@ -95,12 +95,11 @@ function Auth({ session }: any) {
           >
             Login
           </button>
-          <button
-            onClick={logout}
-            className="bg-slate-700 h-10 w-24 border-slate-600 border border-solid rounded-lg shadow-md hover:bg-black hover:scale-105 transition ease-in duration-300 text-slate-200"
+          <Link href="/register"
+            className="bg-slate-700 flex items-center justify-center h-10 w-24 border-slate-600 border border-solid rounded-lg shadow-md hover:bg-black hover:scale-105 transition ease-in duration-300 text-slate-200"
           >
-            <Link href="/register">Register</Link>
-          </button>
+            Register
+          </Link>
           {message && <p className="text-green-600">{message}</p>}
         </form>
       </div>
