@@ -16,11 +16,10 @@ import SideMobile from "./SideMobile";
 import { useState } from "react";
 function Navbar() {
     const  [clicked,setClicked]=useState<boolean>(false);
-    console.log(clicked);
   return (
     <>
       {/* Desktop version */}
-      <div className="bg-black text-slate-200 shadow-sm shadow-slate-700 hidden lg:flex flex-col z-50">
+      <div className=" bg-black text-slate-200 shadow-sm shadow-slate-400 hidden lg:flex flex-col z-50 ">
         <div className=" hidden md:flex  flex-row items-center justify-between w-screen h-16   py-3 px-8 ">
           <div className="flex  flex-row gap-8 items-center ">
             <Link onClick={()=>{clicked?setClicked(false):setClicked(true)}} href="#" className="text-3xl xl:hidden">

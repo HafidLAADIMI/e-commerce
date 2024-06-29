@@ -1,7 +1,10 @@
+"use client";
 import Head from "../../components/Home/Head";
 import Card from "../../components/Home/Card";
 import Button from "../../components/Home/Button";
 import Carousel from "../../components/Home/Carousel";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 export default function Home() {
   const magazin1 = "/magazin1.jpg";
   const magazin2 = "/magazin2.jpg";
@@ -60,8 +63,25 @@ export default function Home() {
       price: "4,849.00MAD",
     },
   ];
+  // const ref = useRef(null);
+  // const isView = useInView(ref, { once: true });
+  // const mainControl = useAnimation();
+  // useEffect(() => {
+  //   if (isView) {
+  //     mainControl.start("visible");
+  //   }
+  // }, [isView, mainControl]);
   return (
-    <div className="flex flex-col items-center  mt-2 gap-3 z-0 overflow-hidden ">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 75 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.65, delay: 0.4 }}
+      className="flex flex-col items-center  mt-2 gap-3 z-0 overflow-hidden "
+    >
       <Head />
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grids gap-2">
         {cardInfo.map((item, i) => (
@@ -69,12 +89,21 @@ export default function Home() {
         ))}
       </div>
       <Button />
-      <div className="flex flex-col backdrop-blur-sm box-border  bg-slate-800/70 border border-slate-700 border-solid text-slate-300 rounded-lg w-[90vw] md:w-[85vw] items-center p-3 lg: ">
-        <div className="flex flex-col items-center ">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 75 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.65, delay: 0.4 }}
+        className="flex flex-col lg:flex-row gap-3 text-slate-300 rounded-lg w-[90vw] md:w-[85vw] items-center p-3 lg: "
+      >
+        <div className="flex flex-col items-center lg:w-[50vw] ">
           <p className="text-3xl xl:text-4xl text-emerald-500 font-bold mb-6">
             Your Premier Retail Experience
           </p>
-          <p className="text-slate-400 md:text-2xl">
+          <p className=" text-slate-200 font-bold font-serif md:text-2xl">
             Welcome to our premier gaming store, your destination for
             top-of-the-line gaming chairs and accessories. Explore our curated
             selection of high-quality gaming chairs designed for comfort and
@@ -88,7 +117,7 @@ export default function Home() {
         <div className="lg:w-[500px]">
           <Carousel magazins={magazins} />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

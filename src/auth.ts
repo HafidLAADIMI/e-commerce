@@ -3,7 +3,7 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import connectDB from "./app/Backend/db";
-import userSchema from "./app/Backend/Model/User";
+import User from "./app/Backend/Model/User";
 interface credentials {
   email: string;
   password: string;
@@ -23,7 +23,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         try {
           await connectDB();
-          const user = await userSchema.findOne({ email:credentials.email });
+          const user = await User.findOne({ email:credentials.email });
           if (user) {
             if (user.password == credentials.password) {
               return user;

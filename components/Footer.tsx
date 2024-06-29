@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 function Footer() {
   return (
-    <footer className="backdrop-blur-sm box-border  bg-slate-800/70 border border-slate-700 border-solid text-slate-300 py-6">
+    <footer className="backdrop-blur-sm box-border  bg-black border border-slate-600 border-solid text-slate-200 py-6">
       <div className="container mx-auto text-center">
         <p className="text-lg  text-emerald-500 font-bold">
           Your Ultimate Destination for Gaming Chairs

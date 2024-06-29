@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
 import { RiStarSFill } from "react-icons/ri";
 import { PiShoppingCartBold } from "react-icons/pi";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 interface Item {
   image: string;
@@ -15,18 +15,42 @@ interface Item {
   caracters: string;
   price: string;
 }
+
 interface PropsItem {
   item: Item;
 }
+
 function Card({ item }: PropsItem) {
-  const router=useRouter();
-  const [clicked, setClickd] = useState<boolean>(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const mainControl = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControl.start("visible");
+    }
+  }, [isInView, mainControl]);
+
+  const router = useRouter();
+  const [clicked, setClicked] = useState<boolean>(false);
+
   return (
-    <div className=" flex flex-col gap-2 items-center rounded-lg w-[45vw] lg:w-[30vw] bg-slate-800/70 border border-slate-700 border-solid text-slate-300 ml-2 my-2 py-2 box-border  ">
+    <motion.div
+      ref={ref}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      initial="hidden"
+      animate={mainControl}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className=" flex flex-col gap-2 items-center rounded-lg w-[45vw] lg:w-[30vw]
+       bg-black shadow-md shadow-white text-slate-200 ml-2 my-2 py-2 box-border  "
+    >
       <div className=" relative  bg-slate-50  w-[43vw] lg:w-[28vw] rounded-lg mx-2">
         <div className="absolute top-2 right-2">
           <FaHeart
-            onClick={() => setClickd(clicked ? false : true)}
+            onClick={() => setClicked(clicked ? false : true)}
             className={` text-2xl ${clicked ? "text-red-600" : "text-black"}`}
           />
         </div>
@@ -37,10 +61,10 @@ function Card({ item }: PropsItem) {
           width={500}
           alt="img"
           className="object-contain hover:scale-110 transition ease-out duration-300 cursor-pointer"
-          onClick={()=>router.push('/product')}
+          onClick={() => router.push("/product")}
         />
       </div>
-      <div className="flex mx-1 flex-row h-8 w-[43vw] lg:w-[28vw] rounded-lg justify-center items-center gap-3 border border-slate-500 px-2 py-4 bg-slate-800 cursor-pointer">
+      <div className="flex mx-1 flex-row h-8 w-[43vw] lg:w-[28vw] rounded-lg justify-center items-center gap-3 border border-slate-500 px-2 py-4 cursor-pointer">
         <IoSettingsSharp />
         <p>{item.iconTitle}</p>
       </div>
@@ -60,7 +84,7 @@ function Card({ item }: PropsItem) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
